@@ -8,15 +8,15 @@ Allowed Bending Stress (B):	Tensile Strength / Safety Factor
 Modulus of Elasticity (E):	Elastic Strength
 The length to height ratio effects the strength of the glass. The table below lists alpha and beta constants to be used in the formula.
 
-For Main Panels		For Bottom Panels	
+For Main Panels		            For Bottom Panels	
 Ratio of L/H	Alpha	Beta	Alpha	Beta
-0.5	0.003	0.085		
-0.666	0.0085	0.1156		
-1.0	0.022	0.16	0.077	0.453
-1.5	0.042	0.26	0.0906	0.5172
-2.0	0.056	0.32	0.1017	0.5688
-2.5	0.063	0.35	0.111	0.6102
-3.0	0.067	0.37	0.1335	0.7134
+0.5	            0.003	0.085    		
+0.666        	0.0085	0.1156		
+1.0          	0.022   0.16	0.077	0.453
+1.5         	0.042	0.26	0.0906	0.5172
+2.0         	0.056	0.32	0.1017	0.5688
+2.5         	0.063	0.35	0.111	0.6102
+3.0	            0.067	0.37	0.1335	0.7134
 When the ratio is less than 0.5, use Alpha and Beta values for 0.5.
 
 When the ratio is greater than 3, use Alpha and Beta values for 3.
