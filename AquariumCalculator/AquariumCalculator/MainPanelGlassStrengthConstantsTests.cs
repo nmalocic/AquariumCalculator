@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace AquariumCalculator
+namespace AquariumCalculatorTests
 {
     /// <summary>
     /// This class is used to test caluclation alpha and beta glass strength contstants

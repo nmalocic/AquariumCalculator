@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AquariumCalculator
+namespace AquariumCalculatorTests
 {
     /// <summary>
     /// This class is used to caluclate alpha and beta glass strength contstants
@@ -50,6 +50,7 @@ namespace AquariumCalculator
             if (lengthToHeightRatio <= 3)
                 return _mainPanelConstants[3];
 
-            return _mainPanelConstants[3];         }
+            return _mainPanelConstants[3];
+        }
     }
 }
