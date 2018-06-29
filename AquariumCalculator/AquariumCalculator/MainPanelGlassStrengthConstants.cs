@@ -37,8 +37,19 @@ namespace AquariumCalculator
         {
             if (lengthToHeightRatio <= 0.5)
                 return _mainPanelConstants[0.5];
+            if (lengthToHeightRatio <= 0.666)
+                return _mainPanelConstants[0.666];
+            if (lengthToHeightRatio <= 1)
+                return _mainPanelConstants[1];
+            if (lengthToHeightRatio <= 1.5)
+                return _mainPanelConstants[1.5];
+            if(lengthToHeightRatio <= 2)
+                return _mainPanelConstants[2];
+            if (lengthToHeightRatio <= 2.5)
+                return _mainPanelConstants[2.5];
+            if (lengthToHeightRatio <= 3)
+                return _mainPanelConstants[3];
 
-            return null;
-        }
+            return _mainPanelConstants[3];         }
     }
 }
