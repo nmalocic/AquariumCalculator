@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AquariumCalculatorTests
 {
@@ -18,39 +19,32 @@ namespace AquariumCalculatorTests
     /// When the ratio is greater than 3, use Alpha and Beta values for 3.
     /// 
     /// </summary>
-    internal class MainPanelGlassStrengthConstants
+    internal class MainPanelGlassStrengthConstants : IGlassStrength
     {
-        private readonly Dictionary<double, AlfaBetaConstants> _mainPanelConstants = new Dictionary<double, AlfaBetaConstants>(7);
+        private readonly IEnumerable<AlfaBetaConstants> _mainPanelConstants;
+        private readonly AlfaBetaConstants _max = new AlfaBetaConstants(3.0, 0.067, 0.37);
 
         public MainPanelGlassStrengthConstants()
         {
-            _mainPanelConstants.Add(0.5, new AlfaBetaConstants(0.0003, 0.085));
-            _mainPanelConstants.Add(0.666, new AlfaBetaConstants(0.0085, 0.1156));
-            _mainPanelConstants.Add(1.0, new AlfaBetaConstants(0.022, 0.16));
-            _mainPanelConstants.Add(1.5, new AlfaBetaConstants(0.042, 0.26));
-            _mainPanelConstants.Add(2.0, new AlfaBetaConstants(0.056, 0.32));
-            _mainPanelConstants.Add(2.5, new AlfaBetaConstants(0.063, 0.35));
-            _mainPanelConstants.Add(3.0, new AlfaBetaConstants(0.067, 0.37));
+            List<AlfaBetaConstants> init = new List<AlfaBetaConstants>();
+            init.Add(new AlfaBetaConstants(0.5, 0.0003, 0.085));
+            init.Add(new AlfaBetaConstants(0.666, 0.0085, 0.1156));
+            init.Add(new AlfaBetaConstants(1.0, 0.022, 0.16));
+            init.Add(new AlfaBetaConstants(1.5, 0.042, 0.26));
+            init.Add(new AlfaBetaConstants(2.0, 0.056, 0.32));
+            init.Add(new AlfaBetaConstants(2.5, 0.063, 0.35));
+            init.Add(new AlfaBetaConstants(3.0, 0.067, 0.37));
+
+            _mainPanelConstants = init;
         }
 
-        internal AlfaBetaConstants GetMainPanelConstants(double lengthToHeightRatio)
+        public AlfaBetaConstants GetStrength(double ratio)
         {
-            if (lengthToHeightRatio <= 0.5)
-                return _mainPanelConstants[0.5];
-            if (lengthToHeightRatio <= 0.666)
-                return _mainPanelConstants[0.666];
-            if (lengthToHeightRatio <= 1)
-                return _mainPanelConstants[1];
-            if (lengthToHeightRatio <= 1.5)
-                return _mainPanelConstants[1.5];
-            if(lengthToHeightRatio <= 2)
-                return _mainPanelConstants[2];
-            if (lengthToHeightRatio <= 2.5)
-                return _mainPanelConstants[2.5];
-            if (lengthToHeightRatio <= 3)
-                return _mainPanelConstants[3];
-
-            return _mainPanelConstants[3];
+            return _mainPanelConstants
+                  .OrderBy(x => x.Ratio)
+                  .Where(item => item.Ratio >= ratio)
+                  .DefaultIfEmpty(_max)
+                  .First();
         }
     }
 }

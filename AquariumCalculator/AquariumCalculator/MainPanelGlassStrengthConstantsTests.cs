@@ -19,139 +19,28 @@ namespace AquariumCalculatorTests
     /// </summary>
     public class MainPanelGlassStrengthConstantsTests
     {
-        [Fact]
-        public void Given_Ratio_LowerThen_0_5_Returns_SameAs__0_5()
+        [Theory]
+        [InlineData(0.34, 0.085)]
+        [InlineData(0.5, 0.085)]
+        [InlineData(0.6, 0.1156)]
+        [InlineData(0.666, 0.1156)]
+        [InlineData(0.8, 0.16)]
+        [InlineData(1, 0.16)]
+        [InlineData(1.2, 0.26)]
+        [InlineData(1.5, 0.26)]
+        [InlineData(1.8, 0.32)]
+        [InlineData(2, 0.32)]
+        [InlineData(2.345, 0.35)]
+        [InlineData(2.5, 0.35)]
+        [InlineData(2.879, 0.37)]
+        [InlineData(3, 0.37)]
+        [InlineData(3.012, 0.37)]
+        public void Given_The_Ratio_Returns_Beta_Strength(double ratio, double expected)
         {
             MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(0.34);
+            AlfaBetaConstants betaConstant = mpgsc.GetStrength(0.34);
 
             Assert.Equal(0.085, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_EqualTo_0_5_Returns_0_5()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(0.5);
-
-            Assert.Equal(0.085, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_LowerThan_0_666_Returns_SamAs_0_666()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(0.6);
-
-            Assert.Equal(0.1156, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_Equal_0_666_Returns_0_666()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(0.666);
-
-            Assert.Equal(0.1156, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_LowerThan_1_Returns_SamAs_1()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(0.8);
-
-            Assert.Equal(0.16, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_ration_Equals_1_Returns_1()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(1);
-
-            Assert.Equal(0.16, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_LowerThan_1_5_Returns_SameAs_1_5()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(1.2);
-
-            Assert.Equal(0.26, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_Equal_1_5_Returns_1_5()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(1.5);
-
-            Assert.Equal(0.26, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_LowerThan_2_Returns_SamAs_2()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(1.8);
-
-            Assert.Equal(0.32, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_Equals_2_Returns_2()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(2);
-
-            Assert.Equal(0.32, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_LowerThan_2_5_Returns_SameAs_2_5()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(2.345);
-
-            Assert.Equal(0.35, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_Equals_2_5_Returns_2_5()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(2.5);
-
-            Assert.Equal(0.35, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_LowerThan_3_Returns_SamAs_3()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(2.879);
-
-            Assert.Equal(0.37, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_Equals_3_Returns_3()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(3);
-
-            Assert.Equal(0.37, betaConstant.Beta);
-        }
-
-        [Fact]
-        public void Given_Ratio_GraterThan_3_Returns_SameAs_3()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetMainPanelConstants(4);
-
-            Assert.Equal(0.37, betaConstant.Beta);
         }
     }
 }

@@ -1,40 +1,30 @@
-﻿using Xunit;
+﻿using System;
 
 namespace AquariumCalculatorTests
 {
-    public class GlassTicknessCalculatorTests
+    internal class GlassTicknessCalculator
     {
-        [Fact]
-        public void Given_L_H_Ratio_Of_1_Calculate_Glass_Tickness()
+        private IGlassStrength _glassStrengthConstants;
+        private double _safeFactor;
+        private double TensileStrenghOfglass = 19.2;
+        private double constant = 0.00001;
+
+        private double BendingStress => TensileStrenghOfglass / _safeFactor;
+
+        public GlassTicknessCalculator(IGlassStrength glassStrengthConstants)
         {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            GlassTicknessCalculator calc = new GlassTicknessCalculator(mpgsc);
-
-            var glassTicknes = calc.GetglassTicknes(1, 1000);
-
-            Assert.Equal(18, glassTicknes);
+            _glassStrengthConstants = glassStrengthConstants;
+            //TODO: Move to configuration
+            _safeFactor = 3.8;
         }
 
-        [Fact]
-        public void Test2()
+        internal double GetglassTicknes(double lengthWidthRatio, double height) 
         {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            GlassTicknessCalculator calc = new GlassTicknessCalculator(mpgsc);
+            var betaConstant = _glassStrengthConstants.GetStrength(lengthWidthRatio).Beta;
+            
+            var tickness = Math.Sqrt(betaConstant * height * height * height * constant / BendingStress);
 
-            var glassTicknes = calc.GetglassTicknes(2.85, 350);
-
-            Assert.Equal(6, glassTicknes);
-        }
-
-        [Fact]
-        public void Test3()
-        {
-            MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            GlassTicknessCalculator calc = new GlassTicknessCalculator(mpgsc);
-
-            var glassTicknes = calc.GetglassTicknes(1.533, 1500);
-
-            Assert.Equal(42, glassTicknes);
+            return Math.Ceiling(tickness);
         }
     }
 }
