@@ -1,33 +1,19 @@
 ﻿namespace AquariumCalculatorTests
 {
-    internal class Aquarium
+    // Made it struct and immutable.
+    // No setters existed anyway other than constructor.
+    internal struct Aquarium
     {
-        private int length;
-        private int width;
-        private int height;
-        private readonly int _toLiters = 1000;
+        public long VolumeMilliliters { get; private set; }
+        public double VolumeLiters { get; private set; }
+        public int GlassSize { get; private set; }
+
 
         public Aquarium(int length, int width, int height)
         {
-            this.length = length;
-            this.width = width;
-            this.height = height;
+            VolumeMilliliters = length * width * height;
+            VolumeLiters = VolumeMilliliters / 1000d;
+            GlassSize = 2 * height * (width + length) + width * length;
         }
-
-        internal int GetVolume()
-        {
-            return length * width * height / _toLiters;
-        }
-
-        internal int GetGlassSize()
-        {
-            return 2 * WidthArea + 2 * LengthArea + BaseArea;
-        }
-
-        private int WidthArea => width * height;
-
-        private int LengthArea => length * height;
-
-        private int BaseArea => width * height;
     }
 }
