@@ -14,7 +14,7 @@ namespace AquariumCalculatorTests
 
             Aquarium aq = new Aquarium(length, width, height);
 
-            var volume = aq.GetVolume();
+            var volume = aq.VolumeLiters;
 
             Assert.Equal(125, volume);
         }
@@ -27,7 +27,7 @@ namespace AquariumCalculatorTests
             int height = 50;
 
             Aquarium aq = new Aquarium(length, width, height);
-            int glassSize = aq.GetGlassSize();
+            int glassSize = aq.GlassSize;
 
             Assert.Equal(12500, glassSize);
         }
