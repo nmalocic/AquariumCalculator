@@ -31,5 +31,18 @@ namespace AquariumCalculatorTests
 
             Assert.Equal(12500, glassSize);
         }
+
+        [Fact]
+        public void Given_Aquarium_Size_returns_glassArea()
+        {
+            int width = 50;
+            int length = 60;
+            int height = 100;
+
+            Aquarium aq = new Aquarium(length, width, height);
+            int glassSize = aq.GetGlassSize();
+
+            Assert.Equal(25000, glassSize);
+        }
     }
 }

@@ -28,6 +28,6 @@
 
         private int LengthArea => length * height;
 
-        private int BaseArea => width * height;
+        private int BaseArea => width * length;
     }
 }
