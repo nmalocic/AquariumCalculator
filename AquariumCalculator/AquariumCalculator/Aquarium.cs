@@ -14,15 +14,10 @@
             this.height = height;
         }
 
-        internal int GetVolume()
-        {
-            return length * width * height / _toLiters;
-        }
+        internal int Volume => length * width * height / _toLiters;
+        
 
-        internal int GetGlassSize()
-        {
-            return 2 * WidthArea + 2 * LengthArea + BaseArea;
-        }
+        internal int GlassSize => 2 * WidthArea + 2 * LengthArea + BaseArea;
 
         private int WidthArea => width * height;
 
