@@ -21,10 +21,9 @@ namespace AquariumCalculatorTests
     /// </summary>
     internal class MainPanelGlassStrengthConstants : IGlassStrength
     {
-        private readonly IEnumerable<AlfaBetaConstants> _mainPanelConstants;
-        private readonly AlfaBetaConstants _max = new AlfaBetaConstants(3.0, 0.067, 0.37);
+        private static readonly IEnumerable<AlfaBetaConstants> _mainPanelConstants;
 
-        public MainPanelGlassStrengthConstants()
+        static MainPanelGlassStrengthConstants()
         {
             List<AlfaBetaConstants> init = new List<AlfaBetaConstants>();
             init.Add(new AlfaBetaConstants(0.5, 0.0003, 0.085));
@@ -40,11 +39,14 @@ namespace AquariumCalculatorTests
 
         public AlfaBetaConstants GetStrength(double ratio)
         {
+            // If less than 0, then 0.5 anyway.
+            // if more than 2.9, then 3.0 anyway, might as well clamp.
+            var clampedRatio = Math.Clamp(ratio, 0d, 2.9d);
+
             return _mainPanelConstants
                   .OrderBy(x => x.Ratio)
-                  .Where(item => item.Ratio >= ratio)
-                  .DefaultIfEmpty(_max)
-                  .First();
+                  .Where(item => item.Ratio >= clampedRatio)
+                  .Aggregate((min, next) => min.Ratio < next.Ratio ? min : next);
         }
     }
 }
