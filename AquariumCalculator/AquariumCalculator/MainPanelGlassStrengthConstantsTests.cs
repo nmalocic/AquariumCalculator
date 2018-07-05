@@ -38,9 +38,9 @@ namespace AquariumCalculatorTests
         public void Given_The_Ratio_Returns_Beta_Strength(double ratio, double expected)
         {
             MainPanelGlassStrengthConstants mpgsc = new MainPanelGlassStrengthConstants();
-            AlfaBetaConstants betaConstant = mpgsc.GetStrength(0.34);
+            AlfaBetaConstants betaConstant = mpgsc.GetStrength(ratio);
 
-            Assert.Equal(0.085, betaConstant.Beta);
+            Assert.Equal(expected, betaConstant.Beta);
         }
     }
 }
