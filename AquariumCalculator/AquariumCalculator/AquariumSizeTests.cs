@@ -27,7 +27,7 @@ namespace AquariumCalculatorTests
             int height = 50;
 
             Aquarium aq = new Aquarium(length, width, height);
-            int glassSize = aq.GlassSize;
+            double glassSize = aq.GlassSize;
 
             Assert.Equal(12500, glassSize);
         }
@@ -40,7 +40,7 @@ namespace AquariumCalculatorTests
             int height = 100;
 
             Aquarium aq = new Aquarium(length, width, height);
-            int glassSize = aq.GlassSize;
+            double glassSize = aq.GlassSize;
 
             Assert.Equal(25000, glassSize);
         }
