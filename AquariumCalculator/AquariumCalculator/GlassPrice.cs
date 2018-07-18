@@ -1,14 +1,14 @@
 ﻿namespace AquariumCalculatorTests
 {
-    public class GlassPrice
+  public class GlassPrice
+  {
+    public GlassPrice(double tickness, double price)
     {
-        public GlassPrice(double tickness, double price)
-        {
-            Tickness = tickness;
-            Price = price;
-        }
-
-        public double Tickness { get; }
-        public double Price { get; }
+      Tickness = tickness;
+      Price = price;
     }
+
+    public double Tickness { get; }
+    public double Price { get; }
+  }
 }
