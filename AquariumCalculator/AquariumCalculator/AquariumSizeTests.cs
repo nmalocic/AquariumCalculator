@@ -1,4 +1,4 @@
-using System;
+using AquariumCalculator.API.Models;
 using Xunit;
 
 namespace AquariumCalculatorTests

@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using AquariumCalculator.API.Bussines;
+using AquariumCalculator.API.Models;
+using Xunit;
 
 namespace AquariumCalculatorTests
 {
