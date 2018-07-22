@@ -1,11 +1,12 @@
-﻿using AquariumCalculator.API.Models;
+﻿using AquariumCalculator.Models;
+using AquariumCalculator.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AquariumCalculator.API.Bussines
+namespace AquariumCalculator.Services
 {
-  public class GlassCatalog
+  public class GlassCatalog : IGlassCatalog
   {
     private static List<GlassPrice> _catalog = new List<GlassPrice>();
 
@@ -28,10 +29,10 @@ namespace AquariumCalculator.API.Bussines
 
     }
 
-    public GlassCatalog(IEnumerable<GlassPrice> catalog)
-    {
-      _catalog.AddRange(catalog);
-    }
+    //public GlassCatalog(IEnumerable<GlassPrice> catalog)
+    //{
+    //  _catalog.AddRange(catalog);
+    //}
 
     public GlassPrice GetPrice(double tickness)
     {

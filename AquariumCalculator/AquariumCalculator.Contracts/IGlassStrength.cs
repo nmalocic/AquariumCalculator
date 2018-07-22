@@ -1,6 +1,6 @@
-﻿using AquariumCalculator.API.Models;
+﻿using AquariumCalculator.Models;
 
-namespace AquariumCalculator.API.Bussines
+namespace AquariumCalculator.Contracts
 {
     public interface IGlassStrength
     {

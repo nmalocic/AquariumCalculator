@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AquariumCalculator.API\AquariumCalculator.API.csproj" />
+    <ProjectReference Include="..\AquariumCalculator.Contracts\AquariumCalculator.Contracts.csproj" />
+    <ProjectReference Include="..\AquariumCalculator.Services\AquariumCalculator.Services.csproj" />
   </ItemGroup>
 
 </Project>

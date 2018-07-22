@@ -1,4 +1,4 @@
-﻿namespace AquariumCalculator.API.Models
+﻿namespace AquariumCalculator.Models
 {
   public class AquariumOffer
   {
