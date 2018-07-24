@@ -17,9 +17,9 @@ namespace AquariumCalculator.API.Controllers
 
     // GET: api/Offer
     [HttpGet]
-    public ActionResult Get([FromHeader]AquariumViewModel test)
+    public ActionResult Get([FromQuery]AquariumViewModel aquariumViewModel)
     {
-      AquariumOffer offer = _aquariumCatalog.GetOfferFor(new Aquarium(200, 200, 50, 3.8));
+      AquariumOffer offer = _aquariumCatalog.GetOfferFor(new Aquarium(aquariumViewModel.Lenght, aquariumViewModel.Width, aquariumViewModel.Height, aquariumViewModel.SafeFactor));
       return Ok(offer);
     }
 

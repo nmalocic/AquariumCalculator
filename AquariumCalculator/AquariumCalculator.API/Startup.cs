@@ -59,6 +59,8 @@ namespace AquariumCalculator.API
         app.UseHsts();
       }
 
+      app.UseStaticFiles();
+
       app.UseCors(builder => builder
        .AllowAnyOrigin()
        .AllowAnyMethod()

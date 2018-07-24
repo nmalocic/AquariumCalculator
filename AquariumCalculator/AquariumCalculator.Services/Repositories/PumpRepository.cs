@@ -8,7 +8,7 @@ namespace AquariumCalculator.Services.Repositories
   public class PumpRepository : IPumpRepository
   {
     public int flowOffset = 1000;
-    private static List<Pump> _availablePumps = new List<Pump>();
+    private List<Pump> _availablePumps = new List<Pump>();
 
     public PumpRepository()
     {
