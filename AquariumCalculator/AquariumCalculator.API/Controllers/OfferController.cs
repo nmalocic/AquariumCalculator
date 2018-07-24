@@ -19,7 +19,7 @@ namespace AquariumCalculator.API.Controllers
     [HttpGet]
     public ActionResult Get([FromHeader]AquariumViewModel test)
     {
-      AquariumOffer offer = _aquariumCatalog.GetOfferFor(new Aquarium(4, 2, 5, 3.8));
+      AquariumOffer offer = _aquariumCatalog.GetOfferFor(new Aquarium(200, 200, 50, 3.8));
       return Ok(offer);
     }
 

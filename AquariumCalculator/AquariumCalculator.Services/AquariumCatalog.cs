@@ -1,24 +1,32 @@
 ﻿using AquariumCalculator.Models;
 using AquariumCalculator.Contracts;
+using AquariumCalculator.Services.Repositories;
+using AquariumCalculator.Contracts.Repository;
 
 namespace AquariumCalculator.Services
 {
   public class AquariumCatalog : IAquariumCatalog
   {
-    private IGlassTickness _glassTickness;
-    private IGlassCatalog _catalog;
+    private readonly IPumpRepository _pumpRepository;
+    private readonly IGlassTickness _glassTickness;
+    private readonly IGlassCatalog _catalog;
+    private readonly ISkimmerRepository _skimmerRepository;
 
-    public AquariumCatalog(IGlassTickness glassTickness, IGlassCatalog catalog)
+    public AquariumCatalog(IGlassTickness glassTickness, IGlassCatalog catalog, ISkimmerRepository skimerRepository, IPumpRepository pumpRepository)
     {
       _glassTickness = glassTickness;
       _catalog = catalog;
+      _skimmerRepository = skimerRepository;
+      _pumpRepository = pumpRepository;
     }
 
     public AquariumOffer GetOfferFor(Aquarium aquarium)
     {
       var glassTickness = _glassTickness.GetGlassTicknes(aquarium);
       var glassPrice = _catalog.GetPrice(glassTickness).Price;
-      return new AquariumOffer(aquarium, glassTickness, glassPrice);
+      var skimmers = _skimmerRepository.GetSkimmersFor(aquarium);
+      var pumps = _pumpRepository.GetPumpsFor(aquarium);
+      return new AquariumOffer(aquarium, glassTickness, glassPrice, skimmers, pumps);
     }
   }
 }
