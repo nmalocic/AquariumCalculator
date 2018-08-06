@@ -14,4 +14,8 @@
     <ProjectReference Include="..\AquariumCalculator.Services\AquariumCalculator.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\" />
+  </ItemGroup>
+
 </Project>

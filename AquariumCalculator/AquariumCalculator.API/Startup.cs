@@ -6,6 +6,8 @@ using AquariumCalculator.Contracts;
 using AquariumCalculator.Contracts.Repository;
 using AquariumCalculator.Services;
 using AquariumCalculator.Services.Repositories;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +38,11 @@ namespace AquariumCalculator.API
       services.AddTransient<IAquariumCatalog, AquariumCatalog>();
       services.AddTransient<IPumpRepository, PumpRepository>();
       services.AddTransient<ISkimmerRepository, SkimmerRepository>();
+
+      services.AddTransient<IPDFService, PDFService>();
+      services.AddTransient<ITemplateService, TemplateService>();
+
+      services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 
       //services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
       //{

@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AquariumCalculatorTests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AquariumCalculator.API", "AquariumCalculator.API\AquariumCalculator.API.csproj", "{E2563155-75B9-48F9-928B-E76ABCCE8CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquariumCalculator.Contracts", "AquariumCalculator.Contracts\AquariumCalculator.Contracts.csproj", "{4BD76FA0-9D5D-426F-8010-A616A132B422}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AquariumCalculator.Contracts", "AquariumCalculator.Contracts\AquariumCalculator.Contracts.csproj", "{4BD76FA0-9D5D-426F-8010-A616A132B422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquariumCalculator.Services", "AquariumCalculator.Services\AquariumCalculator.Services.csproj", "{75A25952-5447-462A-BF44-49807707D129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AquariumCalculator.Services", "AquariumCalculator.Services\AquariumCalculator.Services.csproj", "{75A25952-5447-462A-BF44-49807707D129}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquariumCalculator.Models", "AquariumCalculator.Models\AquariumCalculator.Models.csproj", "{D56ABD25-D316-406C-8356-413157A8CC42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AquariumCalculator.Models", "AquariumCalculator.Models\AquariumCalculator.Models.csproj", "{D56ABD25-D316-406C-8356-413157A8CC42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
