@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <script>
+    function getData() {
+      let len = document.getElementById("len").value;
+      let wid = document.getElementById("wid").value;
+      let height = document.getElementById("height").value;
+      let safe = document.getElementById("safe").value;
+
+      var url = "https://localhost:44370/api/offer?lenght=" + len + "&width=" + wid + "&height=" + height + "&safefactor=" + safe;
+
+      fetch(url,
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(res => res.json())
+        .then(response => {
+          let text = document.getElementById("result");
+          text.innerHTML = JSON.stringify(response, null, 2) ;
+        });
+    }
+
+
+  </script>
+</head>
+<body>
+  <h1>Test Page</h1>
+  <div>
+    <label>Length: </label>
+    <input id="len" type="text" />
+
+    <label>Width: </label>
+    <input id="wid" type="text" />
+
+    <label>Height: </label>
+    <input id="height" type="text"/>
+
+    <label>Safe Factor:</label>
+    <input id="safe" type="text" value="3.8" />
+
+    <button onclick="getData()">Get offer</button>
+
+    <div>
+      <textarea style="width:400px; height:700px;" id="result"></textarea>
+    </div>
+
+
+
+  </div>
+</body>
+</html>

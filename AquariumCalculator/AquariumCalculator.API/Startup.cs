@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AquariumCalculator.Contracts;
+using AquariumCalculator.Contracts.Repository;
 using AquariumCalculator.Services;
+using AquariumCalculator.Services.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,8 +34,16 @@ namespace AquariumCalculator.API
       services.AddTransient<IGlassCatalog, GlassCatalog>();
       services.AddTransient<IGlassStrength, MainPanelGlassStrengthConstants>();
       services.AddTransient<IAquariumCatalog, AquariumCatalog>();
+      services.AddTransient<IPumpRepository, PumpRepository>();
+      services.AddTransient<ISkimmerRepository, SkimmerRepository>();
 
-      
+      //services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+      //{
+      //  builder.AllowAnyOrigin()
+      //         .AllowAnyMethod()
+      //         .AllowAnyHeader();
+      //}));
+
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
 
@@ -49,7 +59,13 @@ namespace AquariumCalculator.API
         app.UseHsts();
       }
 
-      app.UseCors();
+      app.UseStaticFiles();
+
+      app.UseCors(builder => builder
+       .AllowAnyOrigin()
+       .AllowAnyMethod()
+       .AllowAnyHeader()
+       .AllowCredentials());
       //app.UseHttpsRedirection();
       app.UseMvc();
     }
