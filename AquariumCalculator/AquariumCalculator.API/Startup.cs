@@ -42,6 +42,8 @@ namespace AquariumCalculator.API
       services.AddTransient<IPDFService, PDFService>();
       services.AddTransient<ITemplateService, TemplateService>();
 
+      services.AddTransient<IEmailService, EmailService>();
+
       services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 
       //services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
