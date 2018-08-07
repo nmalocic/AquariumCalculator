@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Views\logo.png" />
+    <Content Include="Views\style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
   </ItemGroup>
@@ -12,10 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\AquariumCalculator.Contracts\AquariumCalculator.Contracts.csproj" />
     <ProjectReference Include="..\AquariumCalculator.Services\AquariumCalculator.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\assets\" />
   </ItemGroup>
 
 </Project>

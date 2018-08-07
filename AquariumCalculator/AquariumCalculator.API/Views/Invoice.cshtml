@@ -1,16 +1,209 @@
-﻿@model AquariumCalculator.API.InvoiceModel
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Invoice</title>
-</head>
-<body>
-   <h1>@Model.Name</h1>
-</body>
+    <head>
+        <title>Html invoice</title>
+
+        <meta charset="utf-8">        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="style.css">  
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-wrap">
+                    <div class="logo">
+                        <img src="http://localhost:5000/logo.png" alt="logo" />
+                    </div>
+                    <div class="info-details">
+                            <h1>Reefroom Serbia doo Beograd</h1>
+                            <p>11000 Beograd - Stari grad, Jevrejska 3</p>
+                            <p>PIB: 107124312</p>
+                            <p>Maticni broj: 20746351</p>
+                            <p>Sifra delatnosti: 0321</p>
+                            <p>Br. racuna: 160-415141-36 Banka Intesa</p>
+                        </div>
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <div class="container">
+                <div class="invoice-wrap">
+                    <div class="client-info">
+                        <table>
+                            <tr>
+                                <td>Naziv:</td>
+                                <td><b>Akvarijum Art doo</b></td>
+                            </tr>
+                            <tr>
+                                <td>Mesto:</td>
+                                <td><b>11073 Novi Beograd</b></td>
+                            </tr>
+                            <tr>
+                                <td>Adresa:</td>
+                                <td><b>Gandijeva 122 v</b></td>
+                            </tr>
+                            <tr>
+                                <td>PIB:</td>
+                                <td><b></b></td>
+                            </tr>
+                        </table>
+                    </div>
+    
+                    <div class="invoice-details">
+                        <table>
+                            <tr>
+                                <td><span class="strong">Racun br</span></td>
+                                <td><span class="strong">32/17</span></td>
+                            </tr>
+                            <tr>
+                                <td>Datum i mesto izdavanja</td>
+                                <td>17.11.2017. Beograd</td>
+                            </tr>
+                            <tr>
+                                <td>Datum i mesto prometa</td>
+                                <td>17.11.2017. Beograd</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="table-wrap">
+                    <table>
+                        <tr>
+                            <th>Red. broj</th>
+                            <th>Opis</th>
+                            <th>Jed. mere</th>
+                            <th>Kol</th>
+                            <th>Cena bez PDV</th>
+                            <th>PDV stopa</th>
+                            <th>Iznos PDV-a</th>
+                            <th>Ukupan iznos</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Klovn ribica</td>
+                            <td>kom</td>
+                            <td>3</td>
+                            <td>938.00</td>
+                            <td>20%</td>
+                            <td>562.80</td>
+                            <td>2,814.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" class="right">UKUPNO</td>
+                            <td>23,299.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="8" class="left">Slovima:  dvadesetsedamdiljadadevetstopedesetosamdin I 80/100
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" class="right">UKUPAN IZNOS BEZ PDV</td>
+                            <td>23,299.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" class="right">UKUPAN IZNOS PDV</td>
+                            <td> 4,659.80</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" class="right grand"><strong>UKUPNO ZA NAPLATU DIN.</strong></td>
+                            <td><strong>27,958.80</strong></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <sub class="note">Nacin placanja: <strong>bezgotovinski</strong></sub>
+                <p class="notice"><strong>Napomena: Pravno lice je REEFROOM SERBIA DOO je evidentirano u PDV sistem 21.03.2016. godine</strong></p>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="notice">
+                    <p>Racun je izdat u elektronskj formi i vazeci je bez potpisa i pecata.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

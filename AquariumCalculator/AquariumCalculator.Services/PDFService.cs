@@ -27,15 +27,14 @@ namespace AquariumCalculator.Services
         Orientation = Orientation.Portrait,
         PaperSize = PaperKind.A4,
         Margins = new MarginSettings { Top = 10 },
-        DocumentTitle = "PDF Report",
-        Out = @"D:\PDFCreator\Employee_Report.pdf"
+        DocumentTitle = "PDF Report"
       };
 
       var objectSettings = new ObjectSettings
       {
         PagesCount = true,
         HtmlContent = documentContent,
-        WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot", "assets", "styles.css") }
+        WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet = Path.Combine(Directory.GetCurrentDirectory(), "Views", "style.css") }
       };
 
       var pdf = new HtmlToPdfDocument()

@@ -1,5 +1,6 @@
 ﻿using AquariumCalculator.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace AquariumCalculator.API.Controllers
 {
@@ -17,9 +18,13 @@ namespace AquariumCalculator.API.Controllers
     [HttpGet]
     public IActionResult Index()
     {
-      _pdfService.GeneratePDFFromView("Invoice", new InvoiceModel());
-
-      return Ok();
+      try
+      {
+        var array = _pdfService.GeneratePDFFromView("Invoice", new InvoiceModel());
+        return File(array, "application/pdf");
+      }catch(Exception e) {
+        return BadRequest();
+      }
     }
   }
 }
