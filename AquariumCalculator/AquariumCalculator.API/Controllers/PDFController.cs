@@ -1,33 +1,24 @@
 ﻿using AquariumCalculator.Contracts;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace AquariumCalculator.API.Controllers
 {
-
   [Route("api/[controller]")]
   public class PDFController : Controller
   {
-    private IPDFService _pdfService;
-    private readonly IEmailService _emailService;
+    private readonly IInvoiceService _invoceServce;
 
-    public PDFController(IPDFService pdfService, IEmailService emailService)
+    public PDFController(IInvoiceService invoiceService)
     {
-      _pdfService = pdfService;
-      _emailService = emailService;
+      _invoceServce = invoiceService;
     }
 
     [HttpGet]
     public IActionResult Index()
     {
-      try
-      {
-        var array = _pdfService.GeneratePDFFromView("Invoice", new InvoiceModel());
-        _emailService.SendEmail("bdjuragin@gmail.com", "test", "test", array);
-        return File(array, "application/pdf");
-      }catch(Exception e) {
-        return BadRequest();
-      }
+      _invoceServce.ProcessInovice();
+
+      return Ok();
     }
   }
 }

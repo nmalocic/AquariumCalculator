@@ -27,7 +27,8 @@ namespace AquariumCalculator.Services.Repositories
                 .Where(skimmer => skimmer.MinVolume <= aquarium.Volume
                     && skimmer.MaxVolume >= aquarium.Volume)
                 .OrderBy(skimmer => skimmer.Price)
-                .ThenBy(skimmer => skimmer.Name);
+                .ThenBy(skimmer => skimmer.Name)
+                .Take(4);
     }
   }
 }

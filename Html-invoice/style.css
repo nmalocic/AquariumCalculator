@@ -1,0 +1,126 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.main {
+    font-size: 14px;
+    padding: 10px 0 50px;
+}
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #000;
+}
+th, td {
+    text-align: center;
+    color: #000;
+    padding: 10px;
+}
+th {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    background-color: rgba(234, 239, 250, 0.7);
+}
+td {
+    border-bottom: 1px solid #000;
+}
+.logo {
+    max-width: 250px;
+    width: 100%;
+}
+.logo img {
+    max-width: 100%;
+    width: 100%;
+}
+.header {
+    width: 100%;
+}
+.header-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.invoice-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0 10px;
+    border-top: 2px solid #000;
+    margin-bottom: 30px;
+}
+.client-info table {
+    border: 0;
+}
+.client-info td {
+    text-align: left;
+    border: 0;
+    padding: 2px 5px;
+}
+h1 {
+    color: #1e3d84;
+    font-size: 22px;
+
+}
+.invoice-details {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+.invoice-details table {
+    width: auto;
+}
+.invoice-details td {
+    padding: 5px;
+    border: 1px solid #000;
+}
+.invoice-details .strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+.invoice-details tr td:first-child {
+    background-color: rgba(234, 239, 250, 0.7);
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.grand {
+    font-size: 16px;
+}
+.note {
+    font-size: 14px;
+    margin-bottom: 25px;
+    display: block;
+}
+.footer .notice {
+    width: 100%;
+    border-top: 2px solid #000;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 13px;
+}

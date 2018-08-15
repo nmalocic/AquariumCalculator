@@ -7,16 +7,21 @@
     private readonly int _toLiters = 1000;
 
     public Aquarium(double length, double width, double height)
-      : this(length, width, height, 3.8) { }
+      : this(length, width, height, 3.8, ReefType.Artificial) { }
 
-    public Aquarium(double length, double width, double height, double safeFactor)
+    public Aquarium(double length, double width, double height, double safeFactor) :
+    this(length, width, height, safeFactor, ReefType.Artificial) { }
+
+    public Aquarium(double length, double width, double height, double safeFactor, ReefType reefType)
     {
       Length = length;
       Width = width;
       Height = height;
       SafeFactor = safeFactor;
+      ReefType = reefType;
     }
 
+    public ReefType ReefType { get; }
     public double SafeFactor { get; } = 3.8;
 
     public double GlassSizeInMeters => GlassSizeInCentimeter / 10000;
@@ -26,10 +31,10 @@
     public double LengthHeightRatio => Length / Height;
     public double GlassSizeInCentimeter => 2 * WidthArea + 2 * LengthArea + BaseArea;
     public double SiliconPrice => Volume / 50 * 10;
+    public double BaseArea => Width * Length;
 
-    
     private double WidthArea => Width * Height;
     private double LengthArea => Length * Height;
-    private double BaseArea => Width * Length;
+    
   }
 }
