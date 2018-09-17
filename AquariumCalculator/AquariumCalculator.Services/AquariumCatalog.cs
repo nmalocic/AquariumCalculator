@@ -25,7 +25,7 @@ namespace AquariumCalculator.Services
       var glassTickness = _glassTickness.GetGlassTicknes(aquarium);
       var glassPrice = _catalog.GetPrice(glassTickness).Price;
       var skimmers = _skimmerRepository.GetSkimmersFor(aquarium);
-      var pumps = _pumpRepository.GetPumpsFor(aquarium);
+      var pumps = _pumpRepository.GetAllPumps();
       return new AquariumOffer(aquarium, glassTickness, glassPrice, skimmers, pumps);
     }
   }
