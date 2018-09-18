@@ -11,14 +11,14 @@ namespace AquariumCalculator.Services.Repositories
 
     public SkimmerRepository()
     {
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S60", MinVolume = 130, MaxVolume = 250, Price = 25000 });
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S90", MinVolume = 220, MaxVolume = 500, Price = 35000 });
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S120", MinVolume = 450, MaxVolume = 600, Price = 45000 });
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S60", MinVolume = 350, MaxVolume = 700, Price = 50000 });
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S60", MinVolume = 460, MaxVolume = 1200, Price = 60000 });
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S60", MinVolume = 700, MaxVolume = 1200, Price = 75000 });
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S60", MinVolume = 800, MaxVolume = 1600, Price = 95000 });
-      _availableSkimmers.Add(new Skimmer() { Id = 1, Name = "Somatic S60", MinVolume = 1100, MaxVolume = 2500, Price = 130000 });
+      _availableSkimmers.Add(new Skimmer(1, "Somatic S60", 25000, 130, 250));
+      _availableSkimmers.Add(new Skimmer(2, "Somatic S90", 35000, 220, 500));
+      _availableSkimmers.Add(new Skimmer(3, "Somatic S120", 45000, 450, 600));
+      _availableSkimmers.Add(new Skimmer(4, "Somatic S60", 45000, 350, 700));
+      _availableSkimmers.Add(new Skimmer(5, "Somatic S60", 60000, 460, 1200));
+      _availableSkimmers.Add(new Skimmer(6, "Somatic S60", 75000, 700, 1200));
+      _availableSkimmers.Add(new Skimmer(7, "Somatic S60", 95000, 800, 1600));
+      _availableSkimmers.Add(new Skimmer(8, "Somatic S60", 130000, 1100, 2500));
     }
 
     public IEnumerable<Skimmer> GetSkimmersFor(Aquarium aquarium)

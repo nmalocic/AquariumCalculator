@@ -2,8 +2,6 @@
 {
   public class Aquarium
   {
-    private double Length { get; set; }
-    private double Width { get; set; }
     private readonly int _toLiters = 1000;
 
     public Aquarium(double length, double width, double height)
@@ -23,6 +21,9 @@
 
     public ReefType ReefType { get; }
     public double SafeFactor { get; } = 3.8;
+
+    public double Length { get; }
+    public double Width { get; }
 
     public double GlassSizeInMeters => GlassSizeInCentimeter / 10000;
     public double Height { get; set; }

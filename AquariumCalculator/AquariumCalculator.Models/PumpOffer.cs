@@ -3,25 +3,6 @@ using System.Linq;
 
 namespace AquariumCalculator.Models
 {
-  public class PumpOfferComparer : IEqualityComparer<PumpOffer>
-  {
-    public bool Equals(PumpOffer x, PumpOffer y)
-    {
-      return x.Id.Equals(y.Id);
-    }
-
-    public int GetHashCode(PumpOffer obj)
-    {
-      unchecked
-      {
-        int hash = 17;
-        hash = hash * 23 + obj.Id.GetHashCode();
-
-        return hash;
-      }
-    }
-  }
-
   public class PumpOffer
   {
     private List<Models.Pump> Pumps { get; set; } = new List<Models.Pump>(2);

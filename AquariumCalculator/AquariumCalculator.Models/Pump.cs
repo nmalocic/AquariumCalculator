@@ -11,7 +11,7 @@
       MaxFlow = MaxFlow;
     }
 
-    public int Id { get; set; }
+    public int Id { get; }
     public int ManifacturerId { get; }
     public string Name { get; }
     public double Price { get;}
