@@ -5,6 +5,6 @@ namespace AquariumCalculator.Contracts.Repository
 {
   public interface ISkimmerRepository
   {
-    IEnumerable<Skimmer> GetSkimmersFor(Aquarium aquarium);
+    IEnumerable<Skimmer> GetAll();
   }
 }

@@ -1,9 +1,10 @@
-﻿using AquariumCalculator.Models;
+﻿using AquariumCalculator.Contracts.Repository;
+using AquariumCalculator.Models;
 using System.Collections.Generic;
 
 namespace AquariumCalculator.Services.Repositories
 {
-  public class LightRepository
+  public class LightRepository : ILightRepository
   {
     private List<Light> lights = new List<Light>();
 

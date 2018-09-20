@@ -21,14 +21,9 @@ namespace AquariumCalculator.Services.Repositories
       _availableSkimmers.Add(new Skimmer(8, "Somatic S60", 130000, 1100, 2500));
     }
 
-    public IEnumerable<Skimmer> GetSkimmersFor(Aquarium aquarium)
+    public IEnumerable<Skimmer> GetAll()
     {
-      return _availableSkimmers
-                .Where(skimmer => skimmer.MinVolume <= aquarium.Volume
-                    && skimmer.MaxVolume >= aquarium.Volume)
-                .OrderBy(skimmer => skimmer.Price)
-                .ThenBy(skimmer => skimmer.Name)
-                .Take(4);
+      return _availableSkimmers;
     }
   }
 }

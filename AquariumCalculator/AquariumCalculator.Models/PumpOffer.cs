@@ -5,23 +5,24 @@ namespace AquariumCalculator.Models
 {
   public class PumpOffer
   {
-    private List<Models.Pump> Pumps { get; set; } = new List<Models.Pump>(2);
+    private List<Pump> Pumps { get; set; } = new List<Pump>(2);
 
-    public PumpOffer(Models.Pump single)
+    public PumpOffer(Pump single)
     {
       Pumps.Add(single);
     }
 
-    public PumpOffer(Models.Pump first, Models.Pump second)
+    public PumpOffer(Pump first, Pump second)
     {
       Pumps.Add(first);
       Pumps.Add(second);
     }
 
-    public IEnumerable<Models.Pump> Offer => Pumps;
+    public IEnumerable<Pump> Offer => Pumps;
+
     public string Id => Offer
-                            .OrderBy(x => x.Id)
-                            .Select( x => x.Id.ToString())
-                            .Aggregate((current, next) => current + next);
+                          .OrderBy(x => x.Id)
+                          .Select( x => x.Id.ToString())
+                          .Aggregate((current, next) => current + next);
   }
 }

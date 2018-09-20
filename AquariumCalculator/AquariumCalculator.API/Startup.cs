@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AquariumCalculator.Contracts;
+﻿using AquariumCalculator.Contracts;
 using AquariumCalculator.Contracts.Repository;
 using AquariumCalculator.Services;
+using AquariumCalculator.Services.Configurators;
 using AquariumCalculator.Services.Repositories;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace AquariumCalculator.API
 {
@@ -38,6 +32,12 @@ namespace AquariumCalculator.API
       services.AddTransient<IAquariumCatalog, AquariumCatalog>();
       services.AddTransient<IPumpRepository, PumpRepository>();
       services.AddTransient<ISkimmerRepository, SkimmerRepository>();
+      services.AddTransient<ILightRepository, LightRepository>();
+
+      services.AddTransient<LightConfigurator>();
+      services.AddTransient<PumpConfiguratior>();
+      services.AddTransient<SkimmerConfigurator>();
+
 
       services.AddTransient<IPDFService, PDFService>();
       services.AddTransient<ITemplateService, TemplateService>();

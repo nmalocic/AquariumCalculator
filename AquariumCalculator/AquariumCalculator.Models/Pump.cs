@@ -2,13 +2,14 @@
 {
   public class Pump
   {
-    public Pump(int id, int manifacturerId, string name, double price, int minFlow, int maxFlow)
+    public Pump(int id, int manifacturerId, string name, int minFlow, int maxFlow, double price)
     {
       Id = id;
       Name = name;
+      ManifacturerId = manifacturerId;
       Price = price;
-      MinFlow = MinFlow;
-      MaxFlow = MaxFlow;
+      MinFlow = minFlow;
+      MaxFlow = maxFlow;
     }
 
     public int Id { get; }

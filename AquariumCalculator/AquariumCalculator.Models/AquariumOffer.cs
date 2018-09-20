@@ -7,13 +7,20 @@ namespace AquariumCalculator.Models
     private readonly Aquarium aquarium;
     private double profitMargin = 2;
 
-    public AquariumOffer(Aquarium aquarium, double glassTickness, double glassPrice, IEnumerable<Skimmer> skimmers, IEnumerable<Pump> pumps)
+    public AquariumOffer(
+                        Aquarium aquarium,
+                        double glassTickness, 
+                        double glassPrice, 
+                        IEnumerable<Skimmer> skimmers, 
+                        IEnumerable<PumpOffer> pumps,
+                        IEnumerable<LightOffer> lights)
     {
       this.aquarium = aquarium;
       GlassTickness = glassTickness;
       GlassPrice = glassPrice;
       Skimmers = skimmers;
       Pumps = pumps;
+      Lights = lights;
     }
 
     public double GlassTickness { get; }
@@ -27,6 +34,7 @@ namespace AquariumCalculator.Models
 
     public double Sand => aquarium.BaseArea * 2 / 1000;
     public IEnumerable<Skimmer> Skimmers { get; }
-    public IEnumerable<Pump> Pumps { get; }
+    public IEnumerable<PumpOffer> Pumps { get; }
+    public IEnumerable<LightOffer> Lights { get; }
   }
 }
