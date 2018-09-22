@@ -4,13 +4,15 @@
   <meta charset="utf-8" />
   <title></title>
   <script>
+    let offer = {};
     function getData() {
       let len = document.getElementById("len").value;
       let wid = document.getElementById("wid").value;
       let height = document.getElementById("height").value;
       let safe = document.getElementById("safe").value;
+     
 
-      var url = "https://localhost:44370/api/offer?lenght=" + len + "&width=" + wid + "&height=" + height + "&safefactor=" + safe;
+      var url = "https://localhost:5001/api/offer?lenght=" + len + "&width=" + wid + "&height=" + height + "&safefactor=" + safe;
 
       fetch(url,
         {
@@ -20,10 +22,15 @@
         }).then(res => res.json())
         .then(response => {
           let text = document.getElementById("result");
+          offer = response;
           text.innerHTML = JSON.stringify(response, null, 2) ;
         });
     }
 
+    function order() {
+      let order = {}
+      order.witdh = offer.width;
+    }
 
   </script>
 </head>
