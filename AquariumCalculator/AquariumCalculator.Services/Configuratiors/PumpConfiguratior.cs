@@ -19,8 +19,8 @@ namespace AquariumCalculator.Services.Configurators
 
     }
 
-    public IEnumerable<PumpOffer> GetPumpsFor(Aquarium aquarium) 
-     {
+    public IEnumerable<PumpOffer> GetPumpsFor(Aquarium aquarium)
+    {
       double flow = aquarium.Volume * SPSConstant;
       var maxFlow = flow + (flow * SPSPrecent / 100);
       var minFlow = flow - (flow * SPSPrecent / 100);
